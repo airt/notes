@@ -1,0 +1,23 @@
+language: node_js
+
+node_js:
+  - "7"
+
+cache:
+  yarn: true
+
+before_script:
+  - .scripts/install-theme.sh
+
+script:
+  - npm run build
+
+# https://docs.travis-ci.com/user/deployment/pages
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  target_branch: gh-pages
+  local_dir: public
+  on:
+    branch: master
