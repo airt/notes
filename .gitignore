@@ -1,11 +1,13 @@
 *.log
 
-themes/*/
-
 .deploy*
 db.json
 public
 
+themes/*/
+
 node_modules
+
+yarn.lock
 
 .DS_Store
