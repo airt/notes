@@ -165,11 +165,11 @@ A * B
 
 ## Matrix Multiplication Properties
 
-Not Commutative: $A \cdot B \neq B \cdot A$ in general
+Not Commutative: $A B \neq B A$ in general
 
-Associative: $(A \cdot B) \cdot C = A \cdot (B \cdot C)$
+Associative: $(A B) C = A (B C)$
 
-Identity: $I$ (or $I_{n \times n}$) &nbsp; $s.t.$ &nbsp; $A \cdot I = I \cdot A = A$
+Identity: $I$ (or $I_{n \times n}$) &nbsp; $s.t.$ &nbsp; $A I = I A = A$
 
 $$
 I_{3 \times 3}
@@ -195,7 +195,7 @@ A = [1, 2, 3; 4, 5, 6; 7, 8, 9]
 A'
 ```
 
-Inverse: $A^{-1}$ &nbsp; $s.t.$ &nbsp; $A \cdot A^{-1} = A^{-1} \cdot A = I$
+Inverse: $A^{-1}$ &nbsp; $s.t.$ &nbsp; $A A^{-1} = A^{-1} A = I$
 
 ```m
 A = [1, 2, 0; 0, 5, 6; 7, 0, 9]
@@ -204,6 +204,14 @@ inv(A)
 ```
 
 > Matrices that don't have an inverse are *singular* or *degenerate*
+
+Pseudoinverse: $A^{+}$ &nbsp; $s.t.$ &nbsp; $A A^{+} A = A$, &nbsp; $A^{+} A A^{+} = A^{+}$
+
+```m
+A = [1, 2, 0; 0, 5, 6; 7, 0, 9]
+
+pinv(A)
+```
 
 ---
 
