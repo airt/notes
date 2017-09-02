@@ -38,7 +38,7 @@ learning algorithm : training set → h
 
 ## Cost Function
 
-$J(\theta) = \dfrac{1}{2m} \displaystyle \sum\_{i=1}^m \left (h_\theta(x^{(i)}) - y^{(i)} \right)^2$
+$J(\theta) = \dfrac{1}{2m} \displaystyle \sum\_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$
 
 ## Gradient Descent
 
@@ -77,11 +77,56 @@ plot(x = number of iterations, y = $J(θ)$)
 
 ## Normal Equation
 
-<!-- $h_\theta(x) = X \cdot \theta$ -->
-
 $\theta = (X^T X)^{-1} X^T y$
 
 > There is no need to do feature scaling with the normal equation
+
+### Derivation
+
+$
+X =
+\begin{bmatrix}
+--- (x^{(1)})^T --- \newline
+--- (x^{(2)})^T --- \newline
+\vdots \newline
+--- (x^{(m)})^T --- \newline
+\end{bmatrix}
+$
+
+$
+y =
+\begin{bmatrix}
+y^{(1)} \newline
+y^{(2)} \newline
+\vdots \newline
+y^{(m)} \newline
+\end{bmatrix}
+$
+
+<!--
+$
+X \theta - y =
+\begin{bmatrix}
+h\_\theta(x^{(1)}) - y^{(1)} \newline
+h\_\theta(x^{(2)}) - y^{(2)} \newline
+\vdots \newline
+h\_\theta(x^{(m)}) - y^{(m)} \newline
+\end{bmatrix}
+$
+-->
+
+$
+\displaystyle
+\dfrac{1}{2} (X \theta - y)^T (X \theta - y) =
+\dfrac{1}{2} \sum\_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2 =
+J(\theta)
+$
+
+$
+\nabla_\theta J(\theta) = X^T X \theta - X^T y
+$
+
+$\nabla_\theta J(\theta) = 0$ &nbsp; $\to$ &nbsp; $\theta = (X^T X)^{-1} X^T y$
 
 ### Noninvertibility
 
