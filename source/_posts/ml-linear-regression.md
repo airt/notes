@@ -38,14 +38,14 @@ learning algorithm : training set → h
 
 ## Cost Function
 
-$J(\theta) = \dfrac{1}{2m} \displaystyle \sum\_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$
+$\displaystyle J(\theta) = \dfrac{1}{2m} \sum\_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$
 
 ## Gradient Descent
 
 > Goal: $minimize _\theta J(\theta)$
 
 repeat until convergence:
-&nbsp;&nbsp;&nbsp; $\theta\_j := \theta\_j - \alpha \displaystyle \frac{\partial}{\partial \theta_j} J(\theta) \quad \text{for j := 0...n}$
+&nbsp;&nbsp;&nbsp; $\displaystyle \theta\_j := \theta\_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \quad \text{for j := 0...n}$
 
 where
 &nbsp;&nbsp;&nbsp; $\alpha$: learning rate
@@ -57,6 +57,10 @@ where
 - batch gradient descent
 - stochastic gradient descent
 -->
+
+### Vectorization
+
+$\displaystyle \theta := \theta - \alpha \frac{1}{m} X^T (X \theta - y)$
 
 ### Feature Scaling and Mean Normalization
 
@@ -133,7 +137,7 @@ If $X^T X$ is noninvertible, the common causes might be having:
 - Redundant features (i.e. some features are linearly dependent)
 - Too many features (e.g. m ≤ n)
 
-Solutions: delete some features or use "regularization"
+Solutions: delete some features or use regularization
 
 ## Comparison of Gradient Descent and Normal Equation
 
