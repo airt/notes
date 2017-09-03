@@ -17,7 +17,7 @@ Notes of [Linear Regression](https://www.coursera.org/learn/machine-learning/sup
 | $x^{(i)}$                              | input variables / features  |
 | $y^{(i)}$                              | output variable / target    |
 | $(x^{(i)}, y^{(i)})$                   | training example            |
-| $(x^{(i)}, y^{(i)}) \quad i=1,\dots,m$ | training set                |
+| $(x^{(i)}, y^{(i)}) \quad i=1 \dots m$ | training set                |
 | $X$                                    | space of input values       |
 | $Y$                                    | space of output values      |
 | $h : X → Y$                            | hypothesis                  |
@@ -45,7 +45,7 @@ $J(\theta) = \dfrac{1}{2m} \displaystyle \sum\_{i=1}^m \left( h_\theta(x^{(i)}) 
 > Goal: $minimize _\theta J(\theta)$
 
 repeat until convergence:
-&nbsp;&nbsp;&nbsp; $\theta\_j := \theta\_j - \alpha \displaystyle \frac{\partial}{\partial \theta_j} J(\theta)$
+&nbsp;&nbsp;&nbsp; $\theta\_j := \theta\_j - \alpha \displaystyle \frac{\partial}{\partial \theta_j} J(\theta) \quad \text{for j := 0...n}$
 
 where
 &nbsp;&nbsp;&nbsp; $\alpha$: learning rate
@@ -68,7 +68,7 @@ where
 
 ### Learning Rate
 
-plot(x = number of iterations, y = $J(θ)$)
+plot(1:iterations, $J(θ)$)
 
 - If $\alpha$ is too small: slow convergence
 - If $\alpha$ is too large: ￼may not decrease on every iteration and thus may not converge
@@ -103,7 +103,6 @@ y^{(m)} \newline
 \end{bmatrix}
 $
 
-<!--
 $
 X \theta - y =
 \begin{bmatrix}
@@ -113,12 +112,11 @@ h\_\theta(x^{(2)}) - y^{(2)} \newline
 h\_\theta(x^{(m)}) - y^{(m)} \newline
 \end{bmatrix}
 $
--->
 
 $
 \displaystyle
-\dfrac{1}{2} (X \theta - y)^T (X \theta - y) =
-\dfrac{1}{2} \sum\_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2 =
+\dfrac{1}{2m} (X \theta - y)^T (X \theta - y) =
+\dfrac{1}{2m} \sum\_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2 =
 J(\theta)
 $
 
