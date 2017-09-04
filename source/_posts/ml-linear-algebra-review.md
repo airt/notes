@@ -8,10 +8,6 @@ Notes of [Linear Algebra Review](https://www.coursera.org/learn/machine-learning
 
 <!-- more -->
 
-> To view source code of formulas in TeX: Right Click > Show Math As > TeX Commands
-
-> Octave version: 4.2.1
-
 ## Matrix
 
 $\mathbb{R} ^ {3 \times 2}$:
