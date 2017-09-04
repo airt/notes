@@ -18,8 +18,6 @@ Notes of [Linear Regression](https://www.coursera.org/learn/machine-learning/sup
 | $y^{(i)}$                              | output variable / target    |
 | $(x^{(i)}, y^{(i)})$                   | training example            |
 | $(x^{(i)}, y^{(i)}) \quad i=1 \dots m$ | training set                |
-| $X$                                    | space of input values       |
-| $Y$                                    | space of output values      |
 | $h : X → Y$                            | hypothesis                  |
 
 $h_\theta(x) = \theta^T x =
