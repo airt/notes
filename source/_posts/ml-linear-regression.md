@@ -20,7 +20,8 @@ Notes of [Linear Regression](https://www.coursera.org/learn/machine-learning/sup
 | $(x^{(i)}, y^{(i)}) \quad i=1 \dots m$ | training set                |
 | $h : X → Y$                            | hypothesis                  |
 
-$h_\theta(x) = \theta^T x =
+$
+h_\theta(x) = \theta^T x =
 \begin{bmatrix}
 \theta\_0 & \theta\_1 & \dots & \theta_n
 \end{bmatrix}
@@ -36,7 +37,7 @@ learning algorithm : training set → h
 
 ## Cost Function
 
-$\displaystyle J(\theta) = \dfrac{1}{2m} \sum\_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$
+$\displaystyle J(\theta) = \frac{1}{2m} \sum\_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$
 
 ## Gradient Descent
 
@@ -47,7 +48,7 @@ repeat until convergence:
 
 where
 &nbsp;&nbsp;&nbsp; $\alpha$: learning rate
-&nbsp;&nbsp;&nbsp; $j$: index of feature
+&nbsp; $\displaystyle \frac{\partial}{\partial \theta\_j} J(\theta) = \frac{1}{m} \sum\_{i=1}^m (h\_\theta(x^{(i)}) - y^{(i)}) \; x\_j^{(i)}$
 
 (simultaneous update)
 
