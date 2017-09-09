@@ -44,7 +44,7 @@ $\displaystyle J(\theta) = \frac{1}{2m} \sum\_{i=1}^m \left( h_\theta(x^{(i)}) -
 > Goal: $minimize _\theta J(\theta)$
 
 repeat until convergence:
-&nbsp;&nbsp;&nbsp; $\displaystyle \theta\_j := \theta\_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \quad \text{for j := 0...n}$
+&nbsp;&nbsp;&nbsp; $\displaystyle \theta\_j := \theta\_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \quad \text{for} \; j \gets 0 \dots n$
 
 where
 &nbsp;&nbsp;&nbsp; $\alpha$: learning rate
