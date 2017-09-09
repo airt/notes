@@ -20,15 +20,7 @@ Notes of [Linear Regression](https://www.coursera.org/learn/machine-learning/sup
 | $(x^{(i)}, y^{(i)}) \quad i=1 \dots m$ | training set                |
 | $h : X → Y$                            | hypothesis                  |
 
-$
-h_\theta(x) = \theta^T x =
-\begin{bmatrix}
-\theta\_0 & \theta\_1 & \dots & \theta_n
-\end{bmatrix}
-\begin{bmatrix}
-x\_0 \newline x\_1 \newline \vdots \newline x_n
-\end{bmatrix}
-$
+$h_\theta(x) = \theta^T x$
 
 where
 &nbsp;&nbsp;&nbsp; $x_{0}^{(i)} = 1$
