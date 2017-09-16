@@ -32,7 +32,7 @@ $\theta^T x < 0$ &nbsp; $\to$ &nbsp; $h_\theta(x) < 0.5$ &nbsp; $\to$ &nbsp; $y 
 
 ## Cost Function
 
-$\displaystyle J(\theta) = \frac{1}{m} \sum\_{i=1}^m \mathrm{cost}(h_\theta(x^{(i)}), y^{(i)})$
+$\displaystyle J(\theta) = \frac{1}{m} \sum\_{i=1}^m \mathrm{cost}(h\_\theta(x^{(i)}), y^{(i)})$
 
 $
 \mathrm{cost}(h\_\theta(x), y) =
@@ -74,7 +74,7 @@ $\displaystyle \theta := \theta - \alpha \frac{1}{m} X^T (g(X \theta) - y)$
 
 ## Multiclass Classification
 
-> One-vs-All
+> one-vs-all
 
 $y \in \lbrace 1 \dots k \rbrace$
 
@@ -82,6 +82,16 @@ $h_\theta^{(i)}(x) = P(y = i \mid x; \theta) \quad \text{for} \; i \gets 1 \dots
 
 $\mathrm{prediction} = \max\_i(h\_\theta^{(i)}(x))$
 
+## Regularization
+
+$\displaystyle J(\theta) = \frac{1}{m} \sum\_{i=1}^m \mathrm{cost}(h\_\theta(x^{(i)}), y^{(i)}) + \frac{\lambda}{2m} \sum\_{j=1}^n \theta\_j^2$
+
+where
+&nbsp;&nbsp;&nbsp; $\lambda$: regularization parameter
+
+> $\displaystyle \sum\_{j=1}^n \theta\_j^2$ excludes the bias term $\theta_0$
+
 ---
 
 - <https://www.coursera.org/learn/machine-learning/supplement/QEYX8/lecture-slides>
+- <https://www.coursera.org/learn/machine-learning/supplement/CUz2O/lecture-slides>
