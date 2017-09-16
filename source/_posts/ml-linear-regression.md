@@ -29,7 +29,7 @@ learning algorithm : training set → h
 
 ## Cost Function
 
-$\displaystyle J(\theta) = \frac{1}{2m} \sum\_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2$
+$\displaystyle J(\theta) = \frac{1}{2m} \sum\_{i=1}^m \left( h\_\theta(x^{(i)}) - y^{(i)} \right) ^ 2$
 
 ## Gradient Descent
 
@@ -69,6 +69,15 @@ plot(1:iterations, $J(θ)$)
 - If $\alpha$ is too large: ￼may not decrease on every iteration and thus may not converge
 
 > It has been proven that if learning rate $\alpha$ is sufficiently small, then $J(θ)$ will decrease on every iteration
+
+### Regularization
+
+$\displaystyle J(\theta) = \frac{1}{2m} \left[ \sum\_{i=1}^m \left( h\_\theta(x^{(i)}) - y^{(i)} \right) ^ 2 + \lambda \sum\_{j=1}^n \theta\_j^2 \right]$
+
+where
+&nbsp;&nbsp;&nbsp; $\lambda$: regularization parameter
+
+> $\displaystyle \sum\_{j=1}^n \theta\_j^2$ excludes the bias term $\theta_0$
 
 ## Normal Equation
 
@@ -128,7 +137,24 @@ If $X^T X$ is noninvertible, the common causes might be having:
 - Redundant features (i.e. some features are linearly dependent)
 - Too many features (e.g. m ≤ n)
 
-Solutions: delete some features or use regularization
+Solutions: reduce the number of features or use regularization
+
+### Regularization
+
+$\theta = \left( X^T X + \lambda L \right) ^ {-1} X^T y$
+
+where
+&nbsp;&nbsp;&nbsp; $\lambda$: regularization parameter
+&nbsp;&nbsp;&nbsp; $
+L =
+\begin{bmatrix}
+0 & & & & \newline
+& 1 & & & \newline
+& & 1 & & \newline
+& & & \ddots & \newline
+& & & & 1 \newline
+\end{bmatrix}
+$
 
 ## Comparison of Gradient Descent and Normal Equation
 
