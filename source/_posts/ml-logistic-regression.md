@@ -78,9 +78,14 @@ $\displaystyle \theta := \theta - \alpha \frac{1}{m} X^T (g(X \theta) - y)$
 
 $y \in \lbrace 1 \dots k \rbrace$
 
-$h_\theta^{(i)}(x) = P(y = i \mid x; \theta) \quad \text{for} \; i \gets 1 \dots k$
+$h\_\theta(x) \in \mathbb{R} ^ {K}$
 
-$\mathrm{prediction} = \max\_i(h\_\theta^{(i)}(x))$
+$h\_\theta(x)\_k = P(y = k \mid x; \theta)$
+
+$\mathrm{prediction} = \max\_k(h\_\theta(x)\_k)$
+
+where
+&nbsp;&nbsp;&nbsp; $K$: number of classes
 
 ## Regularization
 
