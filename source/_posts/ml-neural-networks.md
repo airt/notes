@@ -63,6 +63,29 @@ where
 &nbsp;&nbsp;&nbsp; $\Theta^{(l)} \in \mathbb{R} ^ {s\_{l+1} \times (s\_l + 1)}$: matrix of weights
 &nbsp;&nbsp;&nbsp; $s\_l$: number of units in layer $l$
 
+## Multiclass Classification
+
+{% asset_img neural-network-multiclass.png %}
+
+&nbsp;
+$
+y \in
+\lbrace
+\begin{bmatrix} 1 \newline 0 \newline \vdots \newline 0 \end{bmatrix}
+,
+\begin{bmatrix} 0 \newline 1 \newline \vdots \newline 0 \end{bmatrix}
+\dots
+\begin{bmatrix} 0 \newline 0 \newline \vdots \newline 1 \end{bmatrix}
+\rbrace
+$
+
+$h\_\Theta(x) \in \mathbb{R} ^ {K}$
+
+$\mathrm{prediction} = \max\_k(h\_\Theta(x)\_k)$
+
+where
+&nbsp;&nbsp;&nbsp; $K$: number of classes
+
 ---
 
 - <https://www.coursera.org/learn/machine-learning/supplement/jtFHI/lecture-slides>
