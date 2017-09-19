@@ -86,6 +86,40 @@ $\mathrm{prediction} = \max\_k(h\_\Theta(x)\_k)$
 where
 &nbsp;&nbsp;&nbsp; $K$: number of classes
 
+## Cost Function
+
+$
+\displaystyle
+\begin{gather}
+J(\Theta) =
+\-
+\frac{1}{m}
+\sum\_{i=1}^m
+\sum\_{k=1}^K
+\left[
+y^{(i)}\_k
+\log((h\_\Theta(x^{(i)}))\_k)
+\+
+(1 - y^{(i)}\_k)
+\log(1 - (h\_\Theta(x^{(i)}))\_k)
+\right]
+\+
+\frac{\lambda}{2m}
+\sum\_{l=1}^{L-1}
+\sum\_{i=1}^{s\_l}
+\sum\_{j=1}^{s\_{l+1}}
+(\Theta\_{j,i}^{(l)})^2
+\end{gather}
+$
+
+where
+&nbsp;&nbsp;&nbsp; $L$: total number of layers
+&nbsp;&nbsp;&nbsp; $K$: number of classes / output units
+&nbsp;&nbsp;&nbsp; $s\_l$: number of units in layer $l$
+
+> The double sum simply adds up the logistic regression costs calculated for each cell in the output layer
+> The triple sum simply adds up the squares of all the individual $\Theta$s in the entire network
+
 ---
 
 - <https://www.coursera.org/learn/machine-learning/supplement/jtFHI/lecture-slides>
