@@ -119,8 +119,8 @@ $
 
 $
 \displaystyle
-\dfrac{1}{2m} (X \theta - y)^T (X \theta - y) =
-\dfrac{1}{2m} \sum\_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2 =
+\frac{1}{2m} (X \theta - y)^T (X \theta - y) =
+\frac{1}{2m} \sum\_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2 =
 J(\theta)
 $
 
