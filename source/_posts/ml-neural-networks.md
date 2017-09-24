@@ -120,6 +120,92 @@ where
 > The double sum simply adds up the logistic regression costs calculated for each cell in the output layer
 > The triple sum simply adds up the squares of all the individual $\Theta$s in the entire network
 
+## Back Propagation
+
+> Goal: $minimize _\Theta J(\Theta)$
+
+### Computing Partial Derivatives
+
+<!--
+$\dfrac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta)$
+-->
+
+TODO
+
+### Unrolling Parameters
+
+For example, $
+\Theta^{(1)} \in \mathbb{R} ^ {10 \times 11}
+$, $
+\Theta^{(2)} \in \mathbb{R} ^ {10 \times 11}
+$, $
+\Theta^{(3)} \in \mathbb{R} ^ {1 \times 11}
+$
+
+Unroll:
+
+```m
+unrolledTheta = [Theta1(:); Theta2(:); Theta3(:)]
+```
+
+Reshape:
+
+```m
+Theta1 = reshape(unrolledTheta(1:110), 10, 11)
+Theta2 = reshape(unrolledTheta(111:220), 10, 11)
+Theta3 = reshape(unrolledTheta(221:231), 1, 11)
+```
+
+### Gradient Checking
+
+Check that &nbsp; $
+\displaystyle
+\frac{\partial}{\partial \Theta} J(\Theta) \approx
+\frac{J(\Theta + \epsilon) - J(\Theta - \epsilon)}{2 \epsilon}
+$
+
+where
+&nbsp;&nbsp;&nbsp; $\epsilon$: a small value, usually set to $10^{-4}$
+
+<!--
+$
+\displaystyle
+\frac{\partial}{\partial \Theta\_i} J(\Theta) \approx
+\frac{J(\Theta\_1 \dots \Theta\_i + \epsilon \dots \Theta\_n) - J(\Theta\_1 \dots \Theta\_i - \epsilon \dots \Theta\_n)}{2 \epsilon}
+$
+-->
+
+### Random Initialization
+
+<!--
+> Initializing all theta weights to zero does not work with neural networks
+> When backpropagate, all nodes will update to the same value repeatedly
+-->
+
+Initialize each $\Theta_{ij}^{(l)}$ to a random value in $[-\epsilon, \epsilon]$
+
+where
+&nbsp;&nbsp;&nbsp; $\epsilon = \frac{\sqrt{6}}{\sqrt{L\_{in} + L\_{out}}}$
+&nbsp;&nbsp;&nbsp; $L\_{in} = s\_l$
+&nbsp;&nbsp;&nbsp; $L\_{out} = s\_{l+1}$
+
+### Network Architecture
+
+- Number of input units = dimension of features $x^{(i)}$
+- Number of output units = number of classes
+- Number of hidden units per layer = usually more the better (cost of computation increases with more hidden units)
+- Number of hidden layers = defaults 1 (if ＞ 1, it is recommended to have same number of units in every hidden layer)
+
+### Summary
+
+1. Randomly initialize weights
+1. Implement forward propagation to get $h_\Theta(x^{(i)})$ for any $x^{(i)}$
+1. Implement code to compute cost function $J(\Theta)$
+1. Implement back propagation to compute partial derivatives
+1. Use gradient checking to confirm that back propagation works (then disable gradient checking)
+1. Use gradient descent or advanced optimization method with back propagation to minimize $J(\Theta)$ as a function of $\Theta$
+
 ---
 
 - <https://www.coursera.org/learn/machine-learning/supplement/jtFHI/lecture-slides>
+- <https://www.coursera.org/learn/machine-learning/supplement/FklyY/lecture-slides>
