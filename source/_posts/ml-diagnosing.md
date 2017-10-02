@@ -14,7 +14,9 @@ Notes of [Diagnosing Learning Algorithm](https://www.coursera.org/learn/machine-
 - Cross validation set: 20%
 - Test set: 20%
 
-## Bias / Variance
+$\displaystyle J\_{test}(\theta) = \frac{1}{2m\_{test}} \sum\_{i=1}^{m\_{test}} \left( h\_\theta(x\_{test}^{(i)}) - y\_{test}^{(i)} \right) ^ 2$
+
+## Bias and Variance
 
 - High bias (underfit): $J\_{train}(\theta)$ will be high and $J\_{CV}(\theta) \approx J\_{train}(\theta)$
 - High variance (overfit): $J\_{train}(\theta)$ will be low and $J\_{CV}(\theta) \gg J\_{train}(\theta)$
@@ -46,7 +48,7 @@ plot(1:m, $J\_{train}(\theta)$, 1:m, $J\_{CV}(\theta)$)
 - Plot learning curves to decide if more data, more features, etc. are likely to help
 - Manually examine errors on examples in cross validation set and try to spot a trend where most of errors were made
 
-## Precision / Recall
+## Precision and Recall
 
 |                 |       actual 1 |       actual 0 |
 | --------------- | -------------- | -------------- |
