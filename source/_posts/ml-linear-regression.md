@@ -23,7 +23,7 @@ Notes of [Linear Regression](https://www.coursera.org/learn/machine-learning/sup
 $h_\theta(x) = \theta^T x$
 
 where
-&nbsp;&nbsp;&nbsp; $x_{0}^{(i)} = 1$
+$\;\;$ $x_{0}^{(i)} = 1$
 
 learning algorithm : training set → h
 
@@ -35,49 +35,64 @@ $\displaystyle J(\theta) = \frac{1}{2m} \sum\_{i=1}^m \left( h\_\theta(x^{(i)}) 
 
 > Goal: $minimize _\theta J(\theta)$
 
-repeat until convergence:
-&nbsp;&nbsp;&nbsp; $\displaystyle \theta\_j := \theta\_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \quad \text{for} \; j \gets 0 \dots n$
+### Batch Gradient Descent
+
+Repeat until convergence
+$\;\;$ $\displaystyle \theta\_j := \theta\_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \quad \text{for} \; j \gets 0 \dots n$
 
 where
-&nbsp;&nbsp;&nbsp; $\alpha$: learning rate
-&nbsp; $\displaystyle \frac{\partial}{\partial \theta\_j} J(\theta) = \frac{1}{m} \sum\_{i=1}^m (h\_\theta(x^{(i)}) - y^{(i)}) \; x\_j^{(i)}$
+$\;\;$ $\alpha$: learning rate
+$\;$ $\displaystyle \frac{\partial}{\partial \theta\_j} J(\theta) = \frac{1}{m} \sum\_{i=1}^m (h\_\theta(x^{(i)}) - y^{(i)}) \; x\_j^{(i)}$
 
 (simultaneous update)
 
-<!--
-- batch gradient descent
-- stochastic gradient descent
--->
+### Stochastic Gradient Descent
 
-### Vectorization
+Randomly shuffle training examples
 
-$\displaystyle \theta := \theta - \alpha \frac{1}{m} X^T (X \theta - y)$
+Repeat
+$\;\;$ $\text{for} \; i \gets 1 \dots m$
+$\;\;\;\;$ $\displaystyle \theta\_j := \theta\_j - \alpha \; (h\_\theta(x^{(i)}) - y^{(i)}) \; x\_j^{(i)} \quad \text{for} \; j \gets 0 \dots n$
+
+### Mini-Batch Gradient Descent
+
+- Batch gradient descent: Use all $m$ examples in each iteration
+- Stochastic gradient descent: Use 1 example in each iteration
+- Mini-batch gradient descent: Use $b$ examples in each iteration
+
+### Online Learning
+
+[Online Learning - Wikipedia](https://en.wikipedia.org/wiki/online_machine_learning)
 
 ### Feature Scaling and Mean Normalization
 
 $x\_i := \dfrac{x\_i - \mu\_i}{s_i}$
 
 where
-&nbsp;&nbsp;&nbsp; $\mu\_i$: average of all values for feature $x_i$
-&nbsp;&nbsp;&nbsp; $s_i$: range of values (max - min) --- or standard deviation
-
-### Learning Rate
-
-plot(1:iterations, $J(θ)$)
-
-- If $\alpha$ is too small: slow convergence
-- If $\alpha$ is too large: ￼may not decrease on every iteration and thus may not converge
-
-> It has been proven that if learning rate $\alpha$ is sufficiently small, then $J(θ)$ will decrease on every iteration
+$\;\;$ $\mu\_i$: average of all values for feature $x_i$
+$\;\;$ $s_i$: range of values (max - min) --- or standard deviation
 
 ### Regularization
 
 $\displaystyle J(\theta) = \frac{1}{2m} \left[ \sum\_{i=1}^m \left( h\_\theta(x^{(i)}) - y^{(i)} \right) ^ 2 + \lambda \sum\_{j=1}^n \theta\_j^2 \right]$
 
 where
-&nbsp;&nbsp;&nbsp; $\lambda$: regularization parameter
+$\;\;$ $\lambda$: regularization parameter
 
 > $\displaystyle \sum\_{j=1}^n \theta\_j^2$ excludes the bias term $\theta_0$
+
+### Vectorization
+
+$\displaystyle \theta := \theta - \alpha \frac{1}{m} X^T (X \theta - y)$
+
+### Learning Rate
+
+plot(1:iterations, $J(θ)$)
+
+- If $\alpha$ is too small: slow convergence
+- If $\alpha$ is too large: may not decrease on every iteration and thus may not converge
+
+> It has been proven that if learning rate $\alpha$ is sufficiently small, then $J(θ)$ will decrease on every iteration
 
 ## Normal Equation
 
@@ -144,8 +159,8 @@ Solutions: reduce the number of features or use regularization
 $\theta = \left( X^T X + \lambda L \right) ^ {-1} X^T y$
 
 where
-&nbsp;&nbsp;&nbsp; $\lambda$: regularization parameter
-&nbsp;&nbsp;&nbsp; $
+$\;\;$ $\lambda$: regularization parameter
+$\;\;$ $
 L =
 \begin{bmatrix}
 0 & & & & \newline
@@ -186,3 +201,4 @@ $x\_2 = \sqrt{x\_1}$ &nbsp; $s.t.$ &nbsp; $h\_\theta(x) = \theta\_0 + \theta\_1 
 - <https://www.coursera.org/learn/machine-learning/supplement/d5Pt1/lecture-slides>
 - <https://www.coursera.org/learn/machine-learning/supplement/ExY6Z/lecture-slides>
 - <https://www.coursera.org/learn/machine-learning/supplement/HDawH/lecture-slides>
+- <https://www.coursera.org/learn/machine-learning/supplement/itpOu/lecture-slides>
