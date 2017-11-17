@@ -65,5 +65,5 @@ $F_1 = \dfrac{2 \cdot precision \cdot recall}{precision + recall}$
 
 ---
 
-- <https://wwwcoursera.org/learn/machine-learning/supplement/7BHrF/lecture-slides>
+- <https://www.coursera.org/learn/machine-learning/supplement/7BHrF/lecture-slides>
 - <https://www.coursera.org/learn/machine-learning/supplement/gFC7y/lecture-slides>
