@@ -59,12 +59,12 @@ $\displaystyle J(\theta) = \frac{1}{m} \left( - y^T \log(g(X \theta)) - (1 - y)^
 
 ## Gradient Descent
 
-repeat until convergence:
-&nbsp;&nbsp;&nbsp; $\displaystyle \theta\_j := \theta\_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \quad \text{for} \; j \gets 0 \dots n$
+Repeat until convergence
+$\;\;$ $\displaystyle \theta\_j := \theta\_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \quad \text{for} \; j \gets 0 \dots n$
 
 where
-&nbsp;&nbsp;&nbsp; $\alpha$: learning rate
-&nbsp; $\displaystyle \frac{\partial}{\partial \theta\_j} J(\theta) = \frac{1}{m} \sum\_{i=1}^m (h\_\theta(x^{(i)}) - y^{(i)}) \; x\_j^{(i)}$
+$\;\;$ $\alpha$: learning rate
+$\;$ $\displaystyle \frac{\partial}{\partial \theta\_j} J(\theta) = \frac{1}{m} \sum\_{i=1}^m (h\_\theta(x^{(i)}) - y^{(i)}) \; x\_j^{(i)}$
 
 (simultaneous update)
 
@@ -85,14 +85,14 @@ $h\_\theta(x)\_k = P(y = k \mid x; \theta)$
 $\mathrm{prediction} = \max\_k(h\_\theta(x)\_k)$
 
 where
-&nbsp;&nbsp;&nbsp; $K$: number of classes
+$\;\;$ $K$: number of classes
 
 ## Regularization
 
 $\displaystyle J(\theta) = \frac{1}{m} \sum\_{i=1}^m \mathrm{cost}(h\_\theta(x^{(i)}), y^{(i)}) + \frac{\lambda}{2m} \sum\_{j=1}^n \theta\_j^2$
 
 where
-&nbsp;&nbsp;&nbsp; $\lambda$: regularization parameter
+$\;\;$ $\lambda$: regularization parameter
 
 > $\displaystyle \sum\_{j=1}^n \theta\_j^2$ excludes the bias term $\theta_0$
 
