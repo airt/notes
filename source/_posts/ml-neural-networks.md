@@ -55,13 +55,13 @@ $
 $a^{(l)} = g(\Theta^{(l-1)} a^{(l-1)})$
 
 where
-&nbsp;&nbsp;&nbsp; $l$: index of layer
-&nbsp;&nbsp;&nbsp; $a^{(l)}$: "activation" in layer $l$
-&nbsp;&nbsp;&nbsp; $a\_i^{(l)}$: "activation" of unit $i$ in layer $l$
-&nbsp;&nbsp;&nbsp; $a\_0^{(l)} = 1$: bias units
-&nbsp;&nbsp;&nbsp; $a^{(1)} = x$: input layer
-&nbsp;&nbsp;&nbsp; $\Theta^{(l)} \in \mathbb{R} ^ {s\_{l+1} \times (s\_l + 1)}$: matrix of weights
-&nbsp;&nbsp;&nbsp; $s\_l$: number of units in layer $l$
+$\;\;$ $l$: index of layer
+$\;\;$ $a^{(l)}$: "activation" in layer $l$
+$\;\;$ $a\_i^{(l)}$: "activation" of unit $i$ in layer $l$
+$\;\;$ $a\_0^{(l)} = 1$: bias units
+$\;\;$ $a^{(1)} = x$: input layer
+$\;\;$ $\Theta^{(l)} \in \mathbb{R} ^ {s\_{l+1} \times (s\_l + 1)}$: matrix of weights
+$\;\;$ $s\_l$: number of units in layer $l$
 
 ## Multiclass Classification
 
@@ -84,7 +84,7 @@ $h\_\Theta(x) \in \mathbb{R} ^ {K}$
 $\mathrm{prediction} = \max\_k(h\_\Theta(x)\_k)$
 
 where
-&nbsp;&nbsp;&nbsp; $K$: number of classes
+$\;\;$ $K$: number of classes
 
 ## Cost Function
 
@@ -113,9 +113,9 @@ y^{(i)}\_k
 $
 
 where
-&nbsp;&nbsp;&nbsp; $L$: total number of layers
-&nbsp;&nbsp;&nbsp; $K$: number of classes / output units
-&nbsp;&nbsp;&nbsp; $s\_l$: number of units in layer $l$
+$\;\;$ $L$: total number of layers
+$\;\;$ $K$: number of classes / output units
+$\;\;$ $s\_l$: number of units in layer $l$
 
 > The double sum simply adds up the logistic regression costs calculated for each cell in the output layer
 > The triple sum simply adds up the squares of all the individual $\Theta$s in the entire network
@@ -165,7 +165,7 @@ Check that &nbsp; $
 $
 
 where
-&nbsp;&nbsp;&nbsp; $\epsilon$: a small value, usually set to $10^{-4}$
+$\;\;$ $\epsilon$: a small value, usually set to $10^{-4}$
 
 <!--
 $
@@ -185,9 +185,9 @@ $
 Initialize each $\Theta_{ij}^{(l)}$ to a random value in $[-\epsilon, \epsilon]$
 
 where
-&nbsp;&nbsp;&nbsp; $\epsilon = \frac{\sqrt{6}}{\sqrt{L\_{in} + L\_{out}}}$
-&nbsp;&nbsp;&nbsp; $L\_{in} = s\_l$
-&nbsp;&nbsp;&nbsp; $L\_{out} = s\_{l+1}$
+$\;\;$ $\epsilon = \frac{\sqrt{6}}{\sqrt{L\_{in} + L\_{out}}}$
+$\;\;$ $L\_{in} = s\_l$
+$\;\;$ $L\_{out} = s\_{l+1}$
 
 ### Network Architecture
 
