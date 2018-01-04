@@ -2,7 +2,7 @@
 
 set -ex
 
-version='v5.1.2'
+version='v5.1.4'
 
 if [ ! -d 'themes/next' ]
 then
