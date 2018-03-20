@@ -1,7 +1,7 @@
 ---
 title: Notes of Vim Operations
 date: 2017-08-25
-tags:
+tags: Vim
 ---
 
 &nbsp;
