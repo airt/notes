@@ -1,0 +1,42 @@
+theme_config:
+
+  scheme: Mist
+
+  footer:
+    icon:
+      name: heart
+    powered:
+      enable: true
+      version: false
+    theme:
+      enable: true
+      version: false
+
+  menu:
+    home: / || home
+    tags: /tags/ || tags
+    archives: /archives/ || archive
+
+  social:
+    GitHub: https://github.com/airt || github
+    Medium: https://medium.com/@airt || medium
+
+  avatar: https://avatars0.githubusercontent.com/u/5058439
+
+  creative_commons: by-sa
+
+  post_copyright:
+    enable: true
+    license: <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external nofollow" target="_blank">CC BY-SA</a>
+
+  post_meta:
+    item_text: true
+    categories: true
+    created_at: true
+    updated_at: false
+
+  math:
+    enable: true
+    engine: mathjax
+    mathjax:
+      cdn: //cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML

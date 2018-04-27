@@ -2,11 +2,11 @@
 
 set -ex
 
-version='v5.1.4'
+version='v6.2.0'
 
 if [ ! -d 'themes/next' ]
 then
-  git clone --branch $version --depth 1 https://github.com/iissnan/hexo-theme-next themes/next
-  mv themes/next/_config.yml themes/next/_config.yml.b
-  cp themes/next-config.yml themes/next/_config.yml
+  git clone --branch $version --depth 1 https://github.com/theme-next/hexo-theme-next themes/next
+  sed -i '~' 's/^scheme/#&/g' themes/next/_config.yml
+  echo 'scheme: Mist' >> themes/next/_config.yml
 fi
