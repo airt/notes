@@ -14,9 +14,9 @@ Notes of [ES Modules](http://exploringjs.com/es6/ch_modules.html) and [CommonJS 
 
 > Node version: v8.5.0
 
-[Node Modules](https://nodejs.org/api/modules.html)
-[Node ECMAScript Modules](https://nodejs.org/api/esm.html)
-[Node EP for ES Modules](https://github.com/nodejs/node-eps/blob/master/002-es-modules.md)
+- [Node Modules](https://nodejs.org/api/modules.html)
+- [Node ECMAScript Modules](https://nodejs.org/api/esm.html)
+- [Node EP for ES Modules](https://github.com/nodejs/node-eps/blob/master/002-es-modules.md)
 
 - The `--experimental-modules` flag can be used to enable features for loading ES modules
 - ES modules imports will be loaded asynchronously

@@ -1,5 +1,6 @@
 {
   "line-length": false,
+  "no-inline-html": false,
   "first-header-h1": false,
   "no-duplicate-header": false
 }

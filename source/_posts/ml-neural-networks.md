@@ -18,104 +18,98 @@ Notes of [Neural Networks](https://www.coursera.org/learn/machine-learning/suppl
 
 {% asset_img neural-network.png %}
 
-&nbsp;
+<span/>
+
 <!--
 Layer 1: input layer
 Layer 2: hidden layer
 Layer 3: output layer
 -->
 
-$
-\begin{bmatrix}
-x\_1 \newline
-x\_2 \newline
-x\_3 \newline
+$\begin{bmatrix}
+x_1 \newline
+x_2 \newline
+x_3 \newline
 \end{bmatrix}
 \rightarrow
 \begin{bmatrix}
-a\_1^{(2)} \newline
-a\_2^{(2)} \newline
-a\_3^{(2)} \newline
+a_1^{(2)} \newline
+a_2^{(2)} \newline
+a_3^{(2)} \newline
 \end{bmatrix}
 \rightarrow
-h\_\theta(x)
-$
+h_\theta(x)$
 
 <!--
-$
-\begin{align}
-a\_1^{(2)} & = g(\Theta\_{10}^{(1)}x\_0 + \Theta\_{11}^{(1)}x\_1 + \Theta\_{12}^{(1)}x\_2 + \Theta\_{13}^{(1)}x\_3) \newline
-a\_2^{(2)} & = g(\Theta\_{20}^{(1)}x\_0 + \Theta\_{21}^{(1)}x\_1 + \Theta\_{22}^{(1)}x\_2 + \Theta\_{23}^{(1)}x\_3) \newline
-a\_3^{(2)} & = g(\Theta\_{30}^{(1)}x\_0 + \Theta\_{31}^{(1)}x\_1 + \Theta\_{32}^{(1)}x\_2 + \Theta\_{33}^{(1)}x\_3) \newline
-a\_1^{(3)} & = g(\Theta\_{10}^{(2)}a\_0^{(2)} + \Theta\_{11}^{(2)}a\_1^{(2)} + \Theta\_{12}^{(2)}a\_2^{(2)} + \Theta\_{13}^{(2)}a\_3^{(2)}) \newline
-\end{align}
-$
+$\begin{align}
+a_1^{(2)} & = g(\Theta_{10}^{(1)}x_0 + \Theta_{11}^{(1)}x_1 + \Theta_{12}^{(1)}x_2 + \Theta_{13}^{(1)}x_3) \newline
+a_2^{(2)} & = g(\Theta_{20}^{(1)}x_0 + \Theta_{21}^{(1)}x_1 + \Theta_{22}^{(1)}x_2 + \Theta_{23}^{(1)}x_3) \newline
+a_3^{(2)} & = g(\Theta_{30}^{(1)}x_0 + \Theta_{31}^{(1)}x_1 + \Theta_{32}^{(1)}x_2 + \Theta_{33}^{(1)}x_3) \newline
+a_1^{(3)} & = g(\Theta_{10}^{(2)}a_0^{(2)} + \Theta_{11}^{(2)}a_1^{(2)} + \Theta_{12}^{(2)}a_2^{(2)} + \Theta_{13}^{(2)}a_3^{(2)}) \newline
+\end{align}$
 -->
 
 $a^{(l)} = g(\Theta^{(l-1)} a^{(l-1)})$
 
 where
-$\;\;$ $l$: index of layer
-$\;\;$ $a^{(l)}$: "activation" in layer $l$
-$\;\;$ $a\_i^{(l)}$: "activation" of unit $i$ in layer $l$
-$\;\;$ $a\_0^{(l)} = 1$: bias units
-$\;\;$ $a^{(1)} = x$: input layer
-$\;\;$ $\Theta^{(l)} \in \mathbb{R} ^ {s\_{l+1} \times (s\_l + 1)}$: matrix of weights
-$\;\;$ $s\_l$: number of units in layer $l$
+<br/>$\;\;$ $l$: index of layer
+<br/>$\;\;$ $a^{(l)}$: "activation" in layer $l$
+<br/>$\;\;$ $a_i^{(l)}$: "activation" of unit $i$ in layer $l$
+<br/>$\;\;$ $a_0^{(l)} = 1$: bias units
+<br/>$\;\;$ $a^{(1)} = x$: input layer
+<br/>$\;\;$ $\Theta^{(l)} \in \mathbb{R} ^ {s_{l+1} \times (s_l + 1)}$: matrix of weights
+<br/>$\;\;$ $s_l$: number of units in layer $l$
 
 ## Multiclass Classification
 
 {% asset_img neural-network-multiclass.png %}
 
-&nbsp;
-$
-y \in
+<span/>
+
+$y \in
 \lbrace
 \begin{bmatrix} 1 \newline 0 \newline \vdots \newline 0 \end{bmatrix}
 ,
 \begin{bmatrix} 0 \newline 1 \newline \vdots \newline 0 \end{bmatrix}
 \dots
 \begin{bmatrix} 0 \newline 0 \newline \vdots \newline 1 \end{bmatrix}
-\rbrace
-$
+\rbrace$
 
-$h\_\Theta(x) \in \mathbb{R} ^ {K}$
+$h_\Theta(x) \in \mathbb{R} ^ {K}$
 
-$\mathrm{prediction} = \max\_k(h\_\Theta(x)\_k)$
+$\mathrm{prediction} = \max_k(h_\Theta(x)_k)$
 
 where
-$\;\;$ $K$: number of classes
+<br/>$\;\;$ $K$: number of classes
 
 ## Cost Function
 
-$
-\displaystyle
+$\displaystyle
 \begin{gather}
 J(\Theta) =
-\-
+-
 \frac{1}{m}
-\sum\_{i=1}^m
-\sum\_{k=1}^K
+\sum_{i=1}^m
+\sum_{k=1}^K
 \left[
-y^{(i)}\_k
-\log((h\_\Theta(x^{(i)}))\_k)
-\+
-(1 - y^{(i)}\_k)
-\log(1 - (h\_\Theta(x^{(i)}))\_k)
+y^{(i)}_k
+\log((h_\Theta(x^{(i)}))_k)
++
+(1 - y^{(i)}_k)
+\log(1 - (h_\Theta(x^{(i)}))_k)
 \right]
-\+
++
 \frac{\lambda}{2m}
-\sum\_{l=1}^{L-1}
-\sum\_{i=1}^{s\_l}
-\sum\_{j=1}^{s\_{l+1}}
-(\Theta\_{j,i}^{(l)})^2
-\end{gather}
-$
+\sum_{l=1}^{L-1}
+\sum_{i=1}^{s_l}
+\sum_{j=1}^{s_{l+1}}
+(\Theta_{j,i}^{(l)})^2
+\end{gather}$
 
 where
-$\;\;$ $L$: total number of layers
-$\;\;$ $K$: number of classes / output units
-$\;\;$ $s\_l$: number of units in layer $l$
+<br/>$\;\;$ $L$: total number of layers
+<br/>$\;\;$ $K$: number of classes / output units
+<br/>$\;\;$ $s_l$: number of units in layer $l$
 
 > The double sum simply adds up the logistic regression costs calculated for each cell in the output layer
 > The triple sum simply adds up the squares of all the individual $\Theta$s in the entire network
@@ -134,13 +128,10 @@ TODO
 
 ### Unrolling Parameters
 
-For example, $
-\Theta^{(1)} \in \mathbb{R} ^ {10 \times 11}
-$, $
-\Theta^{(2)} \in \mathbb{R} ^ {10 \times 11}
-$, $
-\Theta^{(3)} \in \mathbb{R} ^ {1 \times 11}
-$
+For example,
+$\Theta^{(1)} \in \mathbb{R} ^ {10 \times 11}$,
+$\Theta^{(2)} \in \mathbb{R} ^ {10 \times 11}$,
+$\Theta^{(3)} \in \mathbb{R} ^ {1 \times 11}$
 
 Unroll:
 
@@ -158,21 +149,18 @@ Theta3 = reshape(unrolledTheta(221:231), 1, 11)
 
 ### Gradient Checking
 
-Check that &nbsp; $
-\displaystyle
+Check that &nbsp;
+$\displaystyle
 \frac{\partial}{\partial \Theta} J(\Theta) \approx
-\frac{J(\Theta + \epsilon) - J(\Theta - \epsilon)}{2 \epsilon}
-$
+\frac{J(\Theta + \epsilon) - J(\Theta - \epsilon)}{2 \epsilon}$
 
 where
-$\;\;$ $\epsilon$: a small value, usually set to $10^{-4}$
+<br/>$\;\;$ $\epsilon$: a small value, usually set to $10^{-4}$
 
 <!--
-$
-\displaystyle
-\frac{\partial}{\partial \Theta\_i} J(\Theta) \approx
-\frac{J(\Theta\_1 \dots \Theta\_i + \epsilon \dots \Theta\_n) - J(\Theta\_1 \dots \Theta\_i - \epsilon \dots \Theta\_n)}{2 \epsilon}
-$
+$\displaystyle
+\frac{\partial}{\partial \Theta_i} J(\Theta) \approx
+\frac{J(\Theta_1 \dots \Theta_i + \epsilon \dots \Theta_n) - J(\Theta_1 \dots \Theta_i - \epsilon \dots \Theta_n)}{2 \epsilon}$
 -->
 
 ### Random Initialization
@@ -185,9 +173,9 @@ $
 Initialize each $\Theta_{ij}^{(l)}$ to a random value in $[-\epsilon, \epsilon]$
 
 where
-$\;\;$ $\epsilon = \frac{\sqrt{6}}{\sqrt{L\_{in} + L\_{out}}}$
-$\;\;$ $L\_{in} = s\_l$
-$\;\;$ $L\_{out} = s\_{l+1}$
+<br/>$\;\;$ $\epsilon = \frac{\sqrt{6}}{\sqrt{L_{in} + L_{out}}}$
+<br/>$\;\;$ $L_{in} = s_l$
+<br/>$\;\;$ $L_{out} = s_{l+1}$
 
 ### Network Architecture
 

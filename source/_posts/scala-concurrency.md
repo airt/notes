@@ -75,13 +75,13 @@ Notes of [Learning Concurrent Programming in Scala](https://concurrent-programmi
 - lock-free programming
 - implementing locks explicitly
 - the aba problem
-  (store immutable values inside the atomic references)
+  <br/>(store immutable values inside the atomic references)
 
 ### lazy values
 
 - double-checked locking idiom
-  (never invoke blocking operations inside lazy value initialization expressions)
-  (never call synchronized on publicly available objects; always use a dedicated, private dummy object for synchronization)
+  <br/>(never invoke blocking operations inside lazy value initialization expressions)
+  <br/>(never call synchronized on publicly available objects; always use a dedicated, private dummy object for synchronization)
 
 ### concurrent collections
 
@@ -99,7 +99,7 @@ Notes of [Learning Concurrent Programming in Scala](https://concurrent-programmi
 | blocking      | put     | take    | &nbsp;  |
 
 - weakly consistent iterators
-  (use iterators on concurrent data structures only when you can ensure that no other thread will modify the data structure from the point where the iterator was created until the point where the iterator's hasnext method returns false)
+  <br/>(use iterators on concurrent data structures only when you can ensure that no other thread will modify the data structure from the point where the iterator was created until the point where the iterator's hasnext method returns false)
 
 #### concurrent maps
 
@@ -113,7 +113,7 @@ Notes of [Learning Concurrent Programming in Scala](https://concurrent-programmi
 - remove/2
 - replace/2
 - replace/3
-  (equivalent on 'equals method')
+  <br/>(equivalent on 'equals method')
 
 ##### linearizable methods
 
@@ -124,12 +124,12 @@ Notes of [Learning Concurrent Programming in Scala](https://concurrent-programmi
 - get
 - apply
 - remove
-  (avoid using the null value as a key or a value in a concurrent data structure)
+  <br/>(avoid using the null value as a key or a value in a concurrent data structure)
 
 #### concurrent traversals
 
 - [TrieMap](https://www.scala-lang.org/api/current/scala/collection/concurrent/TrieMap.html)
-  (use TrieMap if you require consistent iterators and ConcurrentHashMap when the get and apply operations are the bottlenecks in your program)
+  <br/>(use TrieMap if you require consistent iterators and ConcurrentHashMap when the get and apply operations are the bottlenecks in your program)
 
 ### processes
 
@@ -172,7 +172,7 @@ Notes of [Learning Concurrent Programming in Scala](https://concurrent-programmi
 - modified exclusive shared invalid (mesi)
 - resource contention
   - memory contention
-    (writing to the same memory location with proper synchronization leads to performance bottlenecks and contention; avoid this in data-parallel operations)
+    <br/>(writing to the same memory location with proper synchronization leads to performance bottlenecks and contention; avoid this in data-parallel operations)
 
 ### hierarchy
 

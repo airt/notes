@@ -14,24 +14,24 @@ Notes of [Diagnosing Learning Algorithm](https://www.coursera.org/learn/machine-
 - Cross validation set: 20%
 - Test set: 20%
 
-$\displaystyle J\_{test}(\theta) = \frac{1}{2m\_{test}} \sum\_{i=1}^{m\_{test}} \left( h\_\theta(x\_{test}^{(i)}) - y\_{test}^{(i)} \right) ^ 2$
+$\displaystyle J_{test}(\theta) = \frac{1}{2m_{test}} \sum_{i=1}^{m_{test}} \left( h_\theta(x_{test}^{(i)}) - y_{test}^{(i)} \right) ^ 2$
 
 ## Bias and Variance
 
-- High bias (underfit): $J\_{train}(\theta)$ will be high and $J\_{CV}(\theta) \approx J\_{train}(\theta)$
-- High variance (overfit): $J\_{train}(\theta)$ will be low and $J\_{CV}(\theta) \gg J\_{train}(\theta)$
+- High bias (underfit): $J_{train}(\theta)$ will be high and $J_{CV}(\theta) \approx J_{train}(\theta)$
+- High variance (overfit): $J_{train}(\theta)$ will be low and $J_{CV}(\theta) \gg J_{train}(\theta)$
 
 ## Learning Curves
 
-plot(1:m, $J\_{train}(\theta)$, 1:m, $J\_{CV}(\theta)$)
+plot(1:m, $J_{train}(\theta)$, 1:m, $J_{CV}(\theta)$)
 
 - Experiencing high bias:
-  - Low training set size: $J\_{train}(\theta)$ will be low and $J\_{CV}(\theta)$ will be high
-  - Large training set size: both $J\_{train}(\theta)$ and $J\_{CV}(\theta)$ will be high with $J\_{train}(\theta) \approx J\_{CV}(\theta)$
+  - Low training set size: $J_{train}(\theta)$ will be low and $J_{CV}(\theta)$ will be high
+  - Large training set size: both $J_{train}(\theta)$ and $J_{CV}(\theta)$ will be high with $J_{train}(\theta) \approx J_{CV}(\theta)$
 - Experiencing high variance:
-  - Low training set size: $J\_{train}(\theta)$ will be low and $J\_{CV}(\theta)$ will be high
-  - Large training set size: $J\_{train}(\theta)$ increases with training set size and $J\_{CV}(\theta)$ continues to decrease without leveling off,
-    also $J\_{train}(\theta) < J\_{CV}(\theta)$ but the difference between them remains significant
+  - Low training set size: $J_{train}(\theta)$ will be low and $J_{CV}(\theta)$ will be high
+  - Large training set size: $J_{train}(\theta)$ increases with training set size and $J_{CV}(\theta)$ continues to decrease without leveling off,
+    also $J_{train}(\theta) < J_{CV}(\theta)$ but the difference between them remains significant
 
 ## Deciding What to Do Next
 

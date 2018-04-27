@@ -23,13 +23,13 @@ Notes of [Linear Regression](https://www.coursera.org/learn/machine-learning/sup
 $h_\theta(x) = \theta^T x$
 
 where
-$\;\;$ $x_{0}^{(i)} = 1$
+<br/>$\;\;$ $x_{0}^{(i)} = 1$
 
 learning algorithm : training set → h
 
 ## Cost Function
 
-$\displaystyle J(\theta) = \frac{1}{2m} \sum\_{i=1}^m \left( h\_\theta(x^{(i)}) - y^{(i)} \right) ^ 2$
+$\displaystyle J(\theta) = \frac{1}{2m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right) ^ 2$
 
 ## Gradient Descent
 
@@ -38,11 +38,11 @@ $\displaystyle J(\theta) = \frac{1}{2m} \sum\_{i=1}^m \left( h\_\theta(x^{(i)}) 
 ### Batch Gradient Descent
 
 Repeat until convergence
-$\;\;$ $\displaystyle \theta\_j := \theta\_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \quad \text{for} \; j \gets 0 \dots n$
+<br/>$\;\;$ $\displaystyle \theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \quad \text{for} \; j \gets 0 \dots n$
 
 where
-$\;\;$ $\alpha$: learning rate
-$\;$ $\displaystyle \frac{\partial}{\partial \theta\_j} J(\theta) = \frac{1}{m} \sum\_{i=1}^m (h\_\theta(x^{(i)}) - y^{(i)}) \; x\_j^{(i)}$
+<br/>$\;\;$ $\alpha$: learning rate
+<br/>$\;$ $\displaystyle \frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \; x_j^{(i)}$
 
 (simultaneous update)
 
@@ -51,8 +51,8 @@ $\;$ $\displaystyle \frac{\partial}{\partial \theta\_j} J(\theta) = \frac{1}{m} 
 Randomly shuffle training examples
 
 Repeat
-$\;\;$ $\text{for} \; i \gets 1 \dots m$
-$\;\;\;\;$ $\displaystyle \theta\_j := \theta\_j - \alpha \; (h\_\theta(x^{(i)}) - y^{(i)}) \; x\_j^{(i)} \quad \text{for} \; j \gets 0 \dots n$
+<br/>$\;\;$ $\text{for} \; i \gets 1 \dots m$
+<br/>$\;\;\;\;$ $\displaystyle \theta_j := \theta_j - \alpha \; (h_\theta(x^{(i)}) - y^{(i)}) \; x_j^{(i)} \quad \text{for} \; j \gets 0 \dots n$
 
 ### Mini-Batch Gradient Descent
 
@@ -66,20 +66,20 @@ $\;\;\;\;$ $\displaystyle \theta\_j := \theta\_j - \alpha \; (h\_\theta(x^{(i)})
 
 ### Feature Scaling and Mean Normalization
 
-$x\_i := \dfrac{x\_i - \mu\_i}{s_i}$
+$x_i := \dfrac{x_i - \mu_i}{s_i}$
 
 where
-$\;\;$ $\mu\_i$: average of all values for feature $x_i$
-$\;\;$ $s_i$: range of values (max - min) --- or standard deviation
+<br/>$\;\;$ $\mu_i$: average of all values for feature $x_i$
+<br/>$\;\;$ $s_i$: range of values (max - min) --- or standard deviation
 
 ### Regularization
 
-$\displaystyle J(\theta) = \frac{1}{2m} \left[ \sum\_{i=1}^m \left( h\_\theta(x^{(i)}) - y^{(i)} \right) ^ 2 + \lambda \sum\_{j=1}^n \theta\_j^2 \right]$
+$\displaystyle J(\theta) = \frac{1}{2m} \left[ \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right) ^ 2 + \lambda \sum_{j=1}^n \theta_j^2 \right]$
 
 where
-$\;\;$ $\lambda$: regularization parameter
+<br/>$\;\;$ $\lambda$: regularization parameter
 
-> $\displaystyle \sum\_{j=1}^n \theta\_j^2$ excludes the bias term $\theta_0$
+> $\displaystyle \sum_{j=1}^n \theta_j^2$ excludes the bias term $\theta_0$
 
 ### Vectorization
 
@@ -102,46 +102,36 @@ $\theta = (X^T X)^{-1} X^T y$
 
 ### Derivation
 
-$
-X =
+$X =
 \begin{bmatrix}
 --- (x^{(1)})^T --- \newline
 --- (x^{(2)})^T --- \newline
 \vdots \newline
 --- (x^{(m)})^T --- \newline
-\end{bmatrix}
-$
+\end{bmatrix}$
 
-$
-y =
+$y =
 \begin{bmatrix}
 y^{(1)} \newline
 y^{(2)} \newline
 \vdots \newline
 y^{(m)} \newline
-\end{bmatrix}
-$
+\end{bmatrix}$
 
-$
-X \theta - y =
+$X \theta - y =
 \begin{bmatrix}
-h\_\theta(x^{(1)}) - y^{(1)} \newline
-h\_\theta(x^{(2)}) - y^{(2)} \newline
+h_\theta(x^{(1)}) - y^{(1)} \newline
+h_\theta(x^{(2)}) - y^{(2)} \newline
 \vdots \newline
-h\_\theta(x^{(m)}) - y^{(m)} \newline
-\end{bmatrix}
-$
+h_\theta(x^{(m)}) - y^{(m)} \newline
+\end{bmatrix}$
 
-$
-\displaystyle
+$\displaystyle
 \frac{1}{2m} (X \theta - y)^T (X \theta - y) =
-\frac{1}{2m} \sum\_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2 =
-J(\theta)
-$
+\frac{1}{2m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2 =
+J(\theta)$
 
-$
-\nabla_\theta J(\theta) = X^T X \theta - X^T y
-$
+$\nabla_\theta J(\theta) = X^T X \theta - X^T y$
 
 $\nabla_\theta J(\theta) = 0$ &nbsp; $\to$ &nbsp; $\theta = (X^T X)^{-1} X^T y$
 
@@ -159,17 +149,15 @@ Solutions: reduce the number of features or use regularization
 $\theta = \left( X^T X + \lambda L \right) ^ {-1} X^T y$
 
 where
-$\;\;$ $\lambda$: regularization parameter
-$\;\;$ $
-L =
+<br/>$\;\;$ $\lambda$: regularization parameter
+<br/>$\;\;$ $L =
 \begin{bmatrix}
 0 & & & & \newline
 & 1 & & & \newline
 & & 1 & & \newline
 & & & \ddots & \newline
 & & & & 1 \newline
-\end{bmatrix}
-$
+\end{bmatrix}$
 
 ## Comparison of Gradient Descent and Normal Equation
 
@@ -184,7 +172,7 @@ $
 
 ## Combine Features
 
-For example, combine $x\_1$ and $x\_2$ into a new feature $x\_3$ by taking $x\_1 \cdot x\_2$
+For example, combine $x_1$ and $x_2$ into a new feature $x_3$ by taking $x_1 \cdot x_2$
 
 ## Polynomial Regression
 
@@ -192,7 +180,7 @@ For example, combine $x\_1$ and $x\_2$ into a new feature $x\_3$ by taking $x\_1
 
 For example, to make it a square root function:
 
-$x\_2 = \sqrt{x\_1}$ &nbsp; $s.t.$ &nbsp; $h\_\theta(x) = \theta\_0 + \theta\_1 x\_1 + \theta\_2 \sqrt{x_1}$
+$x_2 = \sqrt{x_1}$ &nbsp; $s.t.$ &nbsp; $h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 \sqrt{x_1}$
 
 > If choose features this way then feature scaling becomes very important
 

@@ -183,7 +183,7 @@ I = eye(3)
 
 ## Inverse and Transpose
 
-Transposition: $A^T$ &nbsp; $s.t.$ &nbsp; $A\_{ij} = (A^T)_{ji}$
+Transposition: $A^T$ &nbsp; $s.t.$ &nbsp; $A_{ij} = (A^T)_{ji}$
 
 ```m
 A = [1, 2, 3; 4, 5, 6; 7, 8, 9]
