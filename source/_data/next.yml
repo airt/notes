@@ -14,8 +14,9 @@ theme_config:
 
   menu:
     home: / || home
-    tags: /tags/ || tags
     archives: /archives/ || archive
+    tags: /tags/ || tags
+    links: /links/ || link
 
   social:
     GitHub: https://github.com/airt || github
