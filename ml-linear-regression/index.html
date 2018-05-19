@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/notes/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/notes/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/notes/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/notes/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/notes/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/notes/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/notes/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Notes of Linear Regression">
+<meta name="keywords" content="ML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes of Linear Regression">
+<meta property="og:url" content="https://airt.github.io/notes/ml-linear-regression/index.html">
+<meta property="og:site_name" content="notebook">
+<meta property="og:description" content="Notes of Linear Regression">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-05-19T01:28:29.832Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notes of Linear Regression">
+<meta name="twitter:description" content="Notes of Linear Regression">
+
+
+
+  <link rel="alternate" href="/notes/atom.xml" title="notebook" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://airt.github.io/notes/ml-linear-regression/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Notes of Linear Regression | notebook</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/notes/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">notebook</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/notes/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/notes/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/notes/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+    <a href="/notes/links/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-link"></i> <br />links</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://airt.github.io/notes/notes/ml-linear-regression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="airt">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/5058439">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="notebook">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Notes of Linear Regression
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-08-23 12:00:00 am" itemprop="dateCreated datePublished" datetime="2017-08-23T00:00:00+00:00">2017-08-23</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Notes of <a href="https://www.coursera.org/learn/machine-learning/supplement/cRa2m/model-representation" target="_blank" rel="noopener">Linear Regression</a></p>
+<a id="more"></a>
+
+<h2 id="model-representation">Model Representation</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left"> </th>
+<th align="left"> </th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">m</td>
+<td align="left">number of training examples</td>
+</tr>
+<tr class="even">
+<td align="left">n</td>
+<td align="left">number of features</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math">\(x^{(i)}\)</span></td>
+<td align="left">input variables / features</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math">\(y^{(i)}\)</span></td>
+<td align="left">output variable / target</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math">\((x^{(i)}, y^{(i)})\)</span></td>
+<td align="left">training example</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math">\((x^{(i)}, y^{(i)}) \quad i=1 \dots m\)</span></td>
+<td align="left">training set</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math">\(h : X → Y\)</span></td>
+<td align="left">hypothesis</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math">\(h_\theta(x) = \theta^T x\)</span></p>
+<p>where <br><span class="math">\(\;\;\)</span> <span class="math">\(x_{0}^{(i)} = 1\)</span></p>
+<p>learning algorithm : training set → h</p>
+<h2 id="cost-function">Cost Function</h2>
+<p><span class="math">\(\displaystyle J(\theta) = \frac{1}{2m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right) ^ 2\)</span></p>
+<h2 id="gradient-descent">Gradient Descent</h2>
+<blockquote>
+<p>Goal: <span class="math">\(minimize _\theta J(\theta)\)</span></p>
+</blockquote>
+<h3 id="batch-gradient-descent">Batch Gradient Descent</h3>
+<p>Repeat until convergence <br><span class="math">\(\;\;\)</span> <span class="math">\(\displaystyle \theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta) \quad \text{for} \; j \gets 0 \dots n\)</span></p>
+<p>where <br><span class="math">\(\;\;\)</span> <span class="math">\(\alpha\)</span>: learning rate <br><span class="math">\(\;\)</span> <span class="math">\(\displaystyle \frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) \; x_j^{(i)}\)</span></p>
+<p>(simultaneous update)</p>
+<h3 id="stochastic-gradient-descent">Stochastic Gradient Descent</h3>
+<p>Randomly shuffle training examples</p>
+<p>Repeat <br><span class="math">\(\;\;\)</span> <span class="math">\(\text{for} \; i \gets 1 \dots m\)</span> <br><span class="math">\(\;\;\;\;\)</span> <span class="math">\(\displaystyle \theta_j := \theta_j - \alpha \; (h_\theta(x^{(i)}) - y^{(i)}) \; x_j^{(i)} \quad \text{for} \; j \gets 0 \dots n\)</span></p>
+<h3 id="mini-batch-gradient-descent">Mini-Batch Gradient Descent</h3>
+<ul>
+<li>Batch gradient descent: Use all <span class="math">\(m\)</span> examples in each iteration</li>
+<li>Stochastic gradient descent: Use 1 example in each iteration</li>
+<li>Mini-batch gradient descent: Use <span class="math">\(b\)</span> examples in each iteration</li>
+</ul>
+<h3 id="online-learning">Online Learning</h3>
+<p><a href="https://en.wikipedia.org/wiki/online_machine_learning" target="_blank" rel="noopener">Online Learning - Wikipedia</a></p>
+<h3 id="feature-scaling-and-mean-normalization">Feature Scaling and Mean Normalization</h3>
+<p><span class="math">\(x_i := \dfrac{x_i - \mu_i}{s_i}\)</span></p>
+<p>where <br><span class="math">\(\;\;\)</span> <span class="math">\(\mu_i\)</span>: average of all values for feature <span class="math">\(x_i\)</span> <br><span class="math">\(\;\;\)</span> <span class="math">\(s_i\)</span>: range of values (max - min) --- or standard deviation</p>
+<h3 id="regularization">Regularization</h3>
+<p><span class="math">\(\displaystyle J(\theta) = \frac{1}{2m} \left[ \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right) ^ 2 + \lambda \sum_{j=1}^n \theta_j^2 \right]\)</span></p>
+<p>where <br><span class="math">\(\;\;\)</span> <span class="math">\(\lambda\)</span>: regularization parameter</p>
+<blockquote>
+<p><span class="math">\(\displaystyle \sum_{j=1}^n \theta_j^2\)</span> excludes the bias term <span class="math">\(\theta_0\)</span></p>
+</blockquote>
+<h3 id="vectorization">Vectorization</h3>
+<p><span class="math">\(\displaystyle \theta := \theta - \alpha \frac{1}{m} X^T (X \theta - y)\)</span></p>
+<h3 id="learning-rate">Learning Rate</h3>
+<p>plot(1:iterations, <span class="math">\(J(θ)\)</span>)</p>
+<ul>
+<li>If <span class="math">\(\alpha\)</span> is too small: slow convergence</li>
+<li>If <span class="math">\(\alpha\)</span> is too large: may not decrease on every iteration and thus may not converge</li>
+</ul>
+<blockquote>
+<p>It has been proven that if learning rate <span class="math">\(\alpha\)</span> is sufficiently small, then <span class="math">\(J(θ)\)</span> will decrease on every iteration</p>
+</blockquote>
+<h2 id="normal-equation">Normal Equation</h2>
+<p><span class="math">\(\theta = (X^T X)^{-1} X^T y\)</span></p>
+<blockquote>
+<p>There is no need to do feature scaling with the normal equation</p>
+</blockquote>
+<h3 id="derivation">Derivation</h3>
+<p><span class="math">\(X = \begin{bmatrix} --- (x^{(1)})^T --- \newline --- (x^{(2)})^T --- \newline \vdots \newline --- (x^{(m)})^T --- \newline \end{bmatrix}\)</span></p>
+<p><span class="math">\(y = \begin{bmatrix} y^{(1)} \newline y^{(2)} \newline \vdots \newline y^{(m)} \newline \end{bmatrix}\)</span></p>
+<p><span class="math">\(X \theta - y = \begin{bmatrix} h_\theta(x^{(1)}) - y^{(1)} \newline h_\theta(x^{(2)}) - y^{(2)} \newline \vdots \newline h_\theta(x^{(m)}) - y^{(m)} \newline \end{bmatrix}\)</span></p>
+<p><span class="math">\(\displaystyle \frac{1}{2m} (X \theta - y)^T (X \theta - y) = \frac{1}{2m} \sum_{i=1}^m \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2 = J(\theta)\)</span></p>
+<p><span class="math">\(\nabla_\theta J(\theta) = X^T X \theta - X^T y\)</span></p>
+<p><span class="math">\(\nabla_\theta J(\theta) = 0\)</span>   <span class="math">\(\to\)</span>   <span class="math">\(\theta = (X^T X)^{-1} X^T y\)</span></p>
+<h3 id="noninvertibility">Noninvertibility</h3>
+<p>If <span class="math">\(X^T X\)</span> is noninvertible, the common causes might be having:</p>
+<ul>
+<li>Redundant features (i.e. some features are linearly dependent)</li>
+<li>Too many features (e.g. m ≤ n)</li>
+</ul>
+<p>Solutions: reduce the number of features or use regularization</p>
+<h3 id="regularization-1">Regularization</h3>
+<p><span class="math">\(\theta = \left( X^T X + \lambda L \right) ^ {-1} X^T y\)</span></p>
+<p>where <br><span class="math">\(\;\;\)</span> <span class="math">\(\lambda\)</span>: regularization parameter <br><span class="math">\(\;\;\)</span> <span class="math">\(L = \begin{bmatrix} 0 &amp; &amp; &amp; &amp; \newline &amp; 1 &amp; &amp; &amp; \newline &amp; &amp; 1 &amp; &amp; \newline &amp; &amp; &amp; \ddots &amp; \newline &amp; &amp; &amp; &amp; 1 \newline \end{bmatrix}\)</span></p>
+<h2 id="comparison-of-gradient-descent-and-normal-equation">Comparison of Gradient Descent and Normal Equation</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Gradient Descent</th>
+<th align="left">Normal Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Need to choose <span class="math">\(\alpha\)</span></td>
+<td align="left">No need to choose <span class="math">\(\alpha\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Need many iterations</td>
+<td align="left">No need to iterate</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math">\(\mathcal{O}(k n^2)\)</span></td>
+<td align="left"><span class="math">\(\mathcal{O}(n^3)\)</span>, need to calculate <span class="math">\((X^T X)^{-1}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Works well when n is large</td>
+<td align="left">Slow if n is very large</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>In practice, when n exceeds 10,000 it might be a good time to go from a normal solution to an iterative process</p>
+</blockquote>
+<h2 id="combine-features">Combine Features</h2>
+<p>For example, combine <span class="math">\(x_1\)</span> and <span class="math">\(x_2\)</span> into a new feature <span class="math">\(x_3\)</span> by taking <span class="math">\(x_1 \cdot x_2\)</span></p>
+<h2 id="polynomial-regression">Polynomial Regression</h2>
+<blockquote>
+<p>Hypothesis function need not be linear (a straight line) if that does not fit the data well</p>
+</blockquote>
+<p>For example, to make it a square root function:</p>
+<p><span class="math">\(x_2 = \sqrt{x_1}\)</span>   <span class="math">\(s.t.\)</span>   <span class="math">\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 \sqrt{x_1}\)</span></p>
+<blockquote>
+<p>If choose features this way then feature scaling becomes very important</p>
+</blockquote>
+<hr>
+<ul>
+<li><a href="https://www.coursera.org/learn/machine-learning/supplement/d5Pt1/lecture-slides" target="_blank" rel="noopener">https://www.coursera.org/learn/machine-learning/supplement/d5Pt1/lecture-slides</a></li>
+<li><a href="https://www.coursera.org/learn/machine-learning/supplement/ExY6Z/lecture-slides" target="_blank" rel="noopener">https://www.coursera.org/learn/machine-learning/supplement/ExY6Z/lecture-slides</a></li>
+<li><a href="https://www.coursera.org/learn/machine-learning/supplement/HDawH/lecture-slides" target="_blank" rel="noopener">https://www.coursera.org/learn/machine-learning/supplement/HDawH/lecture-slides</a></li>
+<li><a href="https://www.coursera.org/learn/machine-learning/supplement/itpOu/lecture-slides" target="_blank" rel="noopener">https://www.coursera.org/learn/machine-learning/supplement/itpOu/lecture-slides</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>airt</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://airt.github.io/notes/ml-linear-regression/" title="Notes of Linear Regression">https://airt.github.io/notes/ml-linear-regression/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external nofollow" target="_blank">CC BY-SA</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/notes/tags/ML/" rel="tag"># ML</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/notes/build-hexo-blog/" rel="next" title="Notes of Building Hexo Blog">
+                <i class="fa fa-chevron-left"></i> Notes of Building Hexo Blog
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/notes/ml-linear-algebra-review/" rel="prev" title="Notes of Linear Algebra Review">
+                Notes of Linear Algebra Review <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars0.githubusercontent.com/u/5058439"
+                alt="airt" />
+            
+              <p class="site-author-name" itemprop="name">airt</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/notes/archives/">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/notes/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/notes/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/airt" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://medium.com/@airt" target="_blank" title="Medium"><i class="fa fa-fw fa-medium"></i>Medium</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/notes/images/cc-by-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#model-representation"><span class="nav-number">1.</span> <span class="nav-text">Model Representation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cost-function"><span class="nav-number">2.</span> <span class="nav-text">Cost Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradient-descent"><span class="nav-number">3.</span> <span class="nav-text">Gradient Descent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#batch-gradient-descent"><span class="nav-number">3.1.</span> <span class="nav-text">Batch Gradient Descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stochastic-gradient-descent"><span class="nav-number">3.2.</span> <span class="nav-text">Stochastic Gradient Descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mini-batch-gradient-descent"><span class="nav-number">3.3.</span> <span class="nav-text">Mini-Batch Gradient Descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#online-learning"><span class="nav-number">3.4.</span> <span class="nav-text">Online Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#feature-scaling-and-mean-normalization"><span class="nav-number">3.5.</span> <span class="nav-text">Feature Scaling and Mean Normalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#regularization"><span class="nav-number">3.6.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vectorization"><span class="nav-number">3.7.</span> <span class="nav-text">Vectorization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#learning-rate"><span class="nav-number">3.8.</span> <span class="nav-text">Learning Rate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#normal-equation"><span class="nav-number">4.</span> <span class="nav-text">Normal Equation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#derivation"><span class="nav-number">4.1.</span> <span class="nav-text">Derivation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#noninvertibility"><span class="nav-number">4.2.</span> <span class="nav-text">Noninvertibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#regularization-1"><span class="nav-number">4.3.</span> <span class="nav-text">Regularization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#comparison-of-gradient-descent-and-normal-equation"><span class="nav-number">5.</span> <span class="nav-text">Comparison of Gradient Descent and Normal Equation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#combine-features"><span class="nav-number">6.</span> <span class="nav-text">Combine Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#polynomial-regression"><span class="nav-number">7.</span> <span class="nav-text">Polynomial Regression</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">airt</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/notes/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/notes/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/notes/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/notes/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/notes/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/notes/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/notes/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/notes/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
