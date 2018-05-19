@@ -14,9 +14,8 @@ Notes of [Learning Concurrent Programming in Scala](https://concurrent-programmi
 
 ### processes and threads
 
-- jvm thread ≈ os thread
-- deterministic
-- nondeterministic
+- 1 : 1
+- deterministic / nondeterministic
 
 #### thread states
 
